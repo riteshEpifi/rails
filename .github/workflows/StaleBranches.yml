@@ -32,13 +32,7 @@ jobs:
           curl -sL https://github.com/rockymadden/slack-cli/releases/download/v0.23.2/slack_linux_amd64 > slack
           chmod +x slack
           sudo mv slack /usr/local/bin/
-          
-      - name: Send CSV file to Slack
-        run: |
-          SLACK_WEBHOOK= "${{ secrets.SLACKHOOK_SECRET }}"
-          CSV_URL=$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --json artifacts | jq -r '.artifacts[] | select(.name == "my-csv-file") | .archive_download_url')
-          slack -t "${SLACK_WEBHOOK}" -m "Job ${{ job.status }} - CSV File\nDownload the generated CSV file: ${CSV_URL}"
-        
+
       - name: Send CSV file to Slack
         run: |
           SLACK_WEBHOOK="${{ secrets.SLACKHOOK_SECRET }}"
