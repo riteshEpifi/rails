@@ -1,0 +1,42 @@
+Author,Branch,Last Commit Date
+Aaron Patterson,origin/fix-nil-params-in-ap,Thu Feb  1 05:35:25 IST 2018,1517443525,168007844
+Aaron Patterson,origin/no-html-fallback,Sat May 30 05:11:06 IST 2020,1590795666,94655703
+Aaron Patterson,origin/proxy-pg-result,Sat Aug 26 00:24:47 IST 2017,1503687287,181764082
+Aaron Patterson,origin/rack-test,Wed May 25 23:20:11 IST 2022,1653501011,31950358
+Aaron Patterson,origin/remove-qc-ivar,Fri Nov 15 05:58:05 IST 2019,1573777685,111673684
+Andrew White,origin/add-spaces-integration-test,Tue Mar 13 00:02:44 IST 2018,1520879564,164571805
+Andrew White,origin/convert-twz-to-time-subclass,Mon Apr 12 13:23:12 IST 2021,1618213992,67237377
+Andrew White,origin/fix-as-with-api-apps,Wed Jun 24 19:48:54 IST 2020,1593008334,92443035
+Andrew White,origin/fix-find-root-on-ruby-2-2,Sat Apr 25 06:21:30 IST 2015,1429923090,255528279
+Andrew White,origin/make-sure-primary_abstract_class-is-eager-loaded,Sun May 16 13:14:59 IST 2021,1621151099,64300270
+Andrew White,origin/record-timezone-when-writing-from-user,Mon Nov 13 19:55:54 IST 2017,1510583154,174868215
+David Heinemeier Hansson,origin/activestorage-refresh-rollup,Sat Jul 24 06:23:18 IST 2021,1627087998,58363371
+David Heinemeier Hansson,origin/conductor6,Thu Mar 28 05:19:23 IST 2019,1553730563,131720806
+Eileen Uchitelle,origin/json-visitor,Sat Dec 22 00:00:22 IST 2018,1545417022,140034347
+Eileen Uchitelle,origin/remove-json-tests,Sat Dec  1 01:28:04 IST 2018,1543607884,141843485
+Gannon McGibbon,origin/opt_into_open_redirect_protection,Thu Jul 22 23:33:59 IST 2021,1626977039,58474330
+Guillermo Iguaran,origin/activemodel-multiparam-attrs,Sun May  5 11:37:59 IST 2019,1557036479,128414890
+Guillermo Iguaran,origin/backport-30638,Sat Oct 28 11:18:54 IST 2017,1509169734,176281635
+Jean Boussier,origin/fire-sprockets,Sat May 21 21:52:13 IST 2022,1653150133,32301236
+Jean Boussier,origin/revert-42845-fix-descendants-garbage-collection-test,Tue Jul 27 15:56:29 IST 2021,1627381589,58069780
+Jean Boussier,origin/squash-commits-action,Sun May 15 02:46:51 IST 2022,1652563011,32888358
+John Hawthorn,origin/add-github-actions-to-rails,Fri Aug  9 00:52:06 IST 2019,1565292126,120159243
+Kasper Timm Hansen,origin/ditch-premature-optimization-for-collection-cache-keys,Thu Jul 23 04:48:48 IST 2020,1595459928,89991441
+Kasper Timm Hansen,origin/fixtures-refactor,Sun Aug 23 19:41:41 IST 2020,1598191901,87259468
+Kasper Timm Hansen,origin/test-remove-marshal-support-from-schema-cache,Wed Mar 13 02:56:49 IST 2019,1552426009,133025360
+Kasper Timm Hansen,origin/verify-release,Sun Jul 23 00:47:44 IST 2017,1500751064,184700305
+Kurtis Rainbolt-Greene,origin/settings-file,Mon Feb 10 07:00:34 IST 2020,1581298234,104153135
+Matthew Draper,origin/matthewd/inotify,Fri Jul  8 02:04:00 IST 2016,1467923640,217527729
+Matthew Draper,origin/railties-split,Mon Sep  4 20:27:17 IST 2017,1504537037,180914332
+Matthew Draper,origin/ಠ_ಠ,Fri Jul  8 00:50:39 IST 2016,1467919239,217532130
+Phil Ross,origin/tzinfo2,Sun Mar 29 01:12:43 IST 2020,1585424563,100026806
+Piotr Sarnacki,origin/issue-33155,Mon Feb 24 22:38:33 IST 2020,1582564113,102887256
+Sayan Chakraborty,origin/fix-duration-modulo,Fri Jul 28 17:42:51 IST 2017,1501243971,184207398
+Xavier Noria,origin/aj-zeitwerk,Sat Apr 16 16:10:31 IST 2022,1650105631,35345738
+Yves Senn,origin/postgresql_type_map_lookup_fix,Tue Feb 25 15:49:41 IST 2020,1582625981,102825388
+Zachary Scott,origin/zzak-patch-1,Wed Jun 30 14:31:57 IST 2021,1625043717,60407652
+eileencodes,origin/allow-setting-db-with-postgres,Thu May 26 20:31:39 IST 2022,1653577299,31874070
+eileencodes,origin/fix-activestorage-tests,Wed Mar 24 23:36:06 IST 2021,1616609166,68842203
+eileencodes,origin/fix-array-builder-wheres,Sat May  2 00:42:05 IST 2020,1588360325,97091044
+eileencodes,origin/fix-build,Thu May 14 01:40:48 IST 2020,1589400648,96050721
+eileencodes,origin/freeze-configuration_hash,Wed Dec 18 02:47:00 IST 2019,1576617420,108833949
