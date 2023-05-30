@@ -22,19 +22,28 @@ jobs:
           ./scripts/staleBranch.sh
 
       - name: Upload CSV artifact
+        id: upload-csv
         uses: actions/upload-artifact@v3
         with:
           name: my-csv-file
           path: scripts/branch_details.csv
-    
+        
+      - name: Retrieve artifact URL
+        id: artifact-url
+        run: echo "::set-output name=url::${{ steps.upload-csv.outputs.artifact_url }}"
+
       - name: Install Slack CLI
         run: |
           curl -sL https://github.com/rockymadden/slack-cli/releases/download/v0.23.2/slack_linux_amd64 > slack
           chmod +x slack
           sudo mv slack /usr/local/bin/
           
-      - name: Send CSV file to Slack
-        run: |
-          SLACK_WEBHOOK="${{ secrets.SLACKHOOK_SECRET }}"
-          CSV_URL=$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --json artifacts | jq -r '.artifacts[] | select(.name == "my-csv-file") | .archive_download_url')
-          slack -t "${SLACK_WEBHOOK}" -m "Job ${{ job.status }} - CSV File\nDownload the generated CSV file: ${CSV_URL}"
+      - name: Send CSV to Slack
+        uses: slackapi/slack-github-actions@v3
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACKHOOK_SECRET }}
+        with:
+          channel: my-channel
+          message: "CSV File: ${{ steps.artifact-url.outputs.url }}"
+          
+          
