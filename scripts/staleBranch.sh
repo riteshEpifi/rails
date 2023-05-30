@@ -51,3 +51,10 @@ for branch in $remote_branches; do
 done | sort -k 1 >> "$csv_file"
 
 echo "Branch details have been saved to $csv_file."
+
+
+if [ -f "$csv_file" ]; then
+  echo "File exists: path/to/your/file.csv"
+else
+  echo "File does not exist: path/to/your/file.csv"
+fi
