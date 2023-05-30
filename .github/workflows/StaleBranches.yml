@@ -25,3 +25,9 @@ jobs:
         with:
           name: my-csv-file
           path: scripts/branch_details.csv
+          
+      - name: Send CSV file to Slack
+        run: |
+          SLACK_WEBHOOK="${{ secrets.SLACKHOOK_SECRET }}"
+          CSV_URL=$(gh run view ${{ github.run_id }} -R ${{ github.repository }} --json artifacts | jq -r '.artifacts[] | select(.name == "my-csv-file") | .archive_download_url')
+          slack -t "${SLACK_WEBHOOK}" -m "Job ${{ job.status }} - CSV File\nDownload the generated CSV file: ${CSV_URL}"
