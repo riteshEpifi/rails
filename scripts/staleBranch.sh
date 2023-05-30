@@ -7,7 +7,7 @@
 current_date=$(date +%s)
 
 # Convert 3 months to seconds (assuming 30 days per month)
-three_months=$((60*60*24*30*12*5))
+three_months=$((60*60*24*30*12))
 
 # Change to the repository directory
 #cd "$repo_path" || exit 1
