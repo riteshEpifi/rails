@@ -1,6 +1,4 @@
 name: Run Script and Send CSV to Slack
-env:
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 on:
   push:
     branches:
@@ -35,7 +33,6 @@ jobs:
 
       - name: Send CSV file to Slack
         run: |
-          SLACK_WEBHOOK="${{ secrets.SLACKHOOK_SECRET }}"
+          SLACK_WEBHOOK=${{ secrets.SLACKHOOK_SECRET }}
           CSV_URL="${{ steps.upload-csv.outputs.artifact_url }}"
           slack -t "${SLACK_WEBHOOK}" -m "Job ${{ job.status }} - CSV File\nDownload the generated CSV file: ${CSV_URL}"
-
