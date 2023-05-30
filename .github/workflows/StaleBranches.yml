@@ -1,5 +1,6 @@
 name: Run Script and Send CSV to Slack
-
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 on:
   push:
     branches:
