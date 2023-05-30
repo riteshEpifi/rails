@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Set the path to your Git repository
-#repo_path="/path/to/your/repository"
-
+repo_path="."
+# Change to the repository directory
+cd "$repo_path" || exit 1
 # Get the current date in Unix timestamp format
 current_date=$(date +%s)
 
@@ -17,7 +18,7 @@ three_months=$((60*60*24*30*12))
 git fetch
 
 # CSV file to store the branch details
-csv_file="branch_details.csv"
+csv_file="$repo_path/branch_details.csv"
 
 # Create or truncate the CSV file
 echo "Author,Branch,Last Commit Date" > "$csv_file"
