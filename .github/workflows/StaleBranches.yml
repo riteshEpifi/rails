@@ -2,7 +2,7 @@ name: Run Script and Send CSV to Slack
 
 on:
   schedule:
-    - cron: '0 0 1 */2 *'
+    - cron: '30 7 * * *'
 
 jobs:
   build:
