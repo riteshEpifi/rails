@@ -21,4 +21,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: my-csv-file
-          path: generated.csv
+          path: branch_details.csv
