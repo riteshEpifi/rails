@@ -2,7 +2,7 @@ name: Run Script and Send CSV to Slack
 
 on:
   schedule:
-    - cron: '46 7 * * *'
+    - cron: '52 8 * * *'
 
 jobs:
   build:
@@ -21,4 +21,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: my-csv-file
-          path: branch_details.csv
+          path: scripts/branch_details.csv
