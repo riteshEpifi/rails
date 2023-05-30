@@ -25,6 +25,12 @@ jobs:
         with:
           name: my-csv-file
           path: scripts/branch_details.csv
+    
+      - name: Install Slack CLI
+        run: |
+          curl -sL https://github.com/rockymadden/slack-cli/releases/download/v0.23.2/slack_linux_amd64 > slack
+          chmod +x slack
+          sudo mv slack /usr/local/bin/
           
       - name: Send CSV file to Slack
         run: |
