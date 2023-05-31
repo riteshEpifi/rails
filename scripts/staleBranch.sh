@@ -55,7 +55,9 @@ echo "Branch details have been saved to $csv_file."
 
 if [ -f "$csv_file" ]; then
   echo "File exists: $repo_path =>  $csv_file"
-  ls "../scripts"
+  ls "$repo_path"
+  ls "$repo_path/scripts"
+  ls ".."
 else
   echo "File does not exist: path/to/your/file.csv"
 fi
