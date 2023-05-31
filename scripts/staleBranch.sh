@@ -18,7 +18,7 @@ three_months=$((60*60*24*30*12))
 git fetch
 
 # CSV file to store the branch details
-csv_file="$repo_path/branch_details.csv"
+csv_file="branch_details.csv"
 
 # Create or truncate the CSV file
 echo "Author,Branch,Last Commit Date" > "$csv_file"
@@ -55,6 +55,7 @@ echo "Branch details have been saved to $csv_file."
 
 if [ -f "$csv_file" ]; then
   echo "File exists: $repo_path =>  $csv_file"
+  ls "../scripts"
 else
   echo "File does not exist: path/to/your/file.csv"
 fi
