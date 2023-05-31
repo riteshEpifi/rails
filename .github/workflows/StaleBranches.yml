@@ -44,17 +44,6 @@ jobs:
           curl -sL https://github.com/rockymadden/slack-cli/releases/download/v0.23.2/slack_linux_amd64 > slack
           chmod +x slack
 
-      - name: Move Slack CLI to /usr/local/bin/
-        run: sudo mv slack /usr/local/bin/
-
-      - name: Install Slack CLI Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ca-certificates
-    
-      - name: Verify Slack CLI Installation
-        run: slack --version
-
       - name: Send CSV file to Slack
         run: |
           SLACK_WEBHOOK="${{ secrets.SLACKHOOK_SECRET }}"
