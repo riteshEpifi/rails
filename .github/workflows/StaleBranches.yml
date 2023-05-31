@@ -19,6 +19,7 @@ jobs:
       - name: Run Bash script
         run: |
           chmod +x scripts/staleBranch.sh
+          chmod +rx scripts/
           ./scripts/staleBranch.sh
 
       - name: Upload CSV artifact
@@ -39,6 +40,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ca-certificates
+    
+          - name: Verify Slack CLI Installation
+        run: slack --version
 
       - name: Send CSV file to Slack
         run: |
