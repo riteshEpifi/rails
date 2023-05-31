@@ -19,7 +19,7 @@ jobs:
       - name: Run Bash script
         run: |
           chmod +x scripts/staleBranch.sh
-          chmod +rx scripts/
+          chmod +rwx scripts/
           ./scripts/staleBranch.sh
 
       - name: Upload CSV artifact
