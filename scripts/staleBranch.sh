@@ -18,7 +18,7 @@ three_months=$((60*60*24*30*12))
 git fetch
 
 # CSV file to store the branch details
-csv_file="branch_details.csv"
+csv_file="$repo_path/scripts/branch_details.csv"
 
 # Create or truncate the CSV file
 echo "Author,Branch,Last Commit Date" > "$csv_file"
