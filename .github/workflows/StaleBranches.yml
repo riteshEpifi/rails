@@ -33,6 +33,7 @@ jobs:
         run: ls -l scripts
       
       - name: Upload CSV artifact
+        id: upload-csv
         uses: actions/upload-artifact@v3
         with:
           name: my-csv-file
