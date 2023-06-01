@@ -44,7 +44,7 @@ jobs:
 
       - name: List artifact files
         run: |
-          echo "Artifact files: ${{ steps.upload-csv.outputs.artifacts }}"
+          echo "Artifact files: ${{ steps.upload-csv.outputs }}"
 
       - name: Send CSV file to Slack
         run: |
