@@ -1,6 +1,5 @@
 name: Run Script and Send CSV to Slack
-env:
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
 on:
   push:
     branches:
@@ -39,13 +38,18 @@ jobs:
           name: my-csv-file
           path: scripts/branch_details.csv
     
-      - name: Download Slack CLI
-        run: |
-          curl -sL https://github.com/rockymadden/slack-cli/releases/download/v0.23.2/slack_linux_amd64 > slack
-          chmod +x slack
-
       - name: Send CSV file to Slack
-        run: |
-          SLACK_WEBHOOK="${{ secrets.SLACKHOOK_SECRET }}"
-          CSV_URL="${{ steps.upload-csv.outputs.artifact_url }}"
-          slack -t "${SLACK_WEBHOOK}" -m "Job ${{ job.status }} - CSV File\nDownload the generated CSV file: ${CSV_URL}"
+        uses: slack/webhook-action@v2
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACKHOOK_SECRET }}
+        with:
+          payload: |
+            {
+              "text": "Job ${{ job.status }} - CSV File",
+              "attachments": [
+                {
+                  "title": "Download the generated CSV file",
+                  "title_link": "${{ steps.upload-csv.outputs.artifact_url }}"
+                }
+              ]
+            }
