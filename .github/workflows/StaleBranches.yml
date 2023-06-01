@@ -28,25 +28,26 @@ jobs:
           else
             echo "File does not exist: $repo_path/branch_details.csv"
           fi
-          
+
       - name: List files in path
         run: ls -l scripts
-      
+
       - name: Upload CSV artifact
         id: upload-csv
         uses: actions/upload-artifact@v3
         with:
           name: my-csv-file
           path: scripts/branch_details.csv
-          
-      - name: List files in path
+
+      - name: List artifact files
         run: |
-          echo " csv url ${{ steps.upload-csv.outputs.artifact_url }}"
-    
+          echo "Artifact files: ${{ steps.upload-csv.outputs.artifacts }}"
+
       - name: Send CSV file to Slack
         run: |
           SLACK_WEBHOOK_URL="${{ secrets.SLACKHOOK_SECRET }}"
           CSV_URL="${{ steps.upload-csv.outputs.artifact_url }}"
+          echo "CSV URL: $CSV_URL"
           curl -X POST -H 'Content-type: application/json' --data '{
-            "text": "Job success - CSV File\nDownload the generated CSV file: '"${CSV_URL}"'"
+            "text": "Job success - CSV File\nDownload the generated CSV file: $CSV_URL"
           }' "${SLACK_WEBHOOK_URL}"
