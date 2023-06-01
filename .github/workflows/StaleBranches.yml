@@ -39,17 +39,15 @@ jobs:
           path: scripts/branch_details.csv
     
       - name: Send CSV file to Slack
-        uses: slack/webhook-action@v2
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACKHOOK_SECRET }}
-        with:
-          payload: |
-            {
-              "text": "Job ${{ job.status }} - CSV File",
-              "attachments": [
-                {
-                  "title": "Download the generated CSV file",
-                  "title_link": "${{ steps.upload-csv.outputs.artifact_url }}"
-                }
-              ]
-            }
+        run: |
+          SLACK_WEBHOOK_URL=${{ secrets.SLACKHOOK_SECRET }}
+          CSV_URL="${{ steps.upload-csv.outputs.artifact_url }}"
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "Job ${{ job.status }} - CSV File",
+            "attachments": [
+              {
+                "title": "Download the generated CSV file",
+                "title_link": "'"${CSV_URL}"'"
+              }
+            ]
+          }' "${SLACK_WEBHOOK_URL}"
