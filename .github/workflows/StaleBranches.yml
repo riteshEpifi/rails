@@ -49,7 +49,7 @@ jobs:
       - name: Send CSV file to Slack
         run: |
           SLACK_WEBHOOK_URL="${{ secrets.SLACKHOOK_SECRET }}"
-          CSV_URL="${{ steps.upload-csv.outputs.artifact_url }}"
+          CSV_URL="${{ steps.upload-csv.outputs }}"
           echo "CSV URL: $CSV_URL"
           curl -X POST -H 'Content-type: application/json' --data '{
             "text": "Job success - CSV File\nDownload the generated CSV file: $CSV_URL"
