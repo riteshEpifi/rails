@@ -63,7 +63,7 @@ else
 fi
 
 # Slack webhook URL
-webhook_url= "${{ secrets.SLACKHOOK_SECRET }}"
+webhook_url= "$SLACKHOOK_SECRET"
 # Slack channel
 channel="#stalebranch-testing-channel"
 
