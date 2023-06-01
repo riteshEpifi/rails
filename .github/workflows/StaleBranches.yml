@@ -32,6 +32,9 @@ jobs:
       - name: List files in path
         run: ls -l scripts
 
+      - name: List file permissions
+        run: ls -l scripts/branch_details.csv
+        
       - name: Upload CSV artifact
         id: upload-csv
         uses: actions/upload-artifact@v3
