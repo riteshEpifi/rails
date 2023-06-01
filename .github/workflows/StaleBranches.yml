@@ -46,7 +46,7 @@ jobs:
             "text": "Job ${{ job.status }} - CSV File",
             "attachments": [
               {
-                "title": "Download the generated CSV file $CSV_URL",
+                "title": "'"${CSV_URL}"'",
                 "title_link": "'"${CSV_URL}"'"
               }
             ]
