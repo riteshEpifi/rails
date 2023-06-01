@@ -14,12 +14,10 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v3
-
-      - name: Set up environment variables
-        run: |
-        echo "::set-env name=SLACKHOOK_SECRET::${{ secrets.HOOK_SECRET }}"
-
+        
       - name: Run Bash script
+        env:
+          SLACKHOOK_SECRET: ${{ secrets.SLACKHOOK_SECRET }}
         run: |
           chmod +x scripts/staleBranch.sh
           chmod +rwx scripts/
