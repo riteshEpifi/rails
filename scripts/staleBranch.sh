@@ -61,3 +61,19 @@ if [ -f "$csv_file" ]; then
 else
   echo "File does not exist: path/to/your/file.csv"
 fi
+
+# Slack webhook URL
+webhook_url= "${{ secrets.SLACKHOOK_SECRET }}"
+# Slack channel
+channel="#stalebranch-testing-channel"
+
+# Upload the CSV file
+response=$(curl -F file=@"$csv_file" -F channels="$channel" "$webhook_url")
+
+# Check if the upload was successful
+if [[ $response == *"ok\":true"* ]]; then
+  echo "CSV file has been uploaded successfully."
+else
+  echo "Failed to upload CSV file."
+  echo "Response: $response"
+fi
