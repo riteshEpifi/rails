@@ -15,6 +15,10 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
+      - name: Set up environment variables
+        run: |
+        echo "::set-env name=SLACKHOOK_SECRET::${{ secrets.HOOK_SECRET }}"
+
       - name: Run Bash script
         run: |
           chmod +x scripts/staleBranch.sh
@@ -44,12 +48,12 @@ jobs:
 
       - name: List artifact files
         run: |
-          echo "Artifact files: ${{ steps.upload-csv.outputs }}"
+          echo "Artifact files: ${{ steps.upload-csv.outputs.artifact_url }}"
 
       - name: Send CSV file to Slack
         run: |
           SLACK_WEBHOOK_URL="${{ secrets.SLACKHOOK_SECRET }}"
-          CSV_URL="${{ steps.upload-csv.outputs }}"
+          CSV_URL="${{ steps.upload-csv.outputs.artifact_url }}"
           echo "CSV URL: $CSV_URL"
           curl -X POST -H 'Content-type: application/json' --data '{
             "text": "Job success - CSV File\nDownload the generated CSV file: $CSV_URL"
