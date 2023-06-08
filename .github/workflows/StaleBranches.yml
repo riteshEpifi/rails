@@ -1,4 +1,4 @@
-name: Run Script and Send CSV to Slack
+name: Send CSV to Slack
 
 on:
   push:
