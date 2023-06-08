@@ -1,11 +1,8 @@
 name: Send CSV to Slack
 
 on:
-  push:
-    branches:
-      - '*'
   schedule:
-    - cron: '59 8 * * *'
+    - cron: '30 11 8 3,6,9,12 *'
 
 jobs:
   build:

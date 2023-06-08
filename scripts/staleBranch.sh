@@ -65,6 +65,7 @@ SLACK_API_TOKEN="${SLACKHOOK_SECRET}"
 channel="#stalebranch-testing-channel"
 # Send the file to Slack
 curl -F file=@$csv_file \
+     -F initial_comment="List of stale branches in iOS repository:" \
      -F channels=$channel \
      -H "Authorization: Bearer ${SLACK_API_TOKEN}" \
      https://slack.com/api/files.upload >/dev/null 2>&1
